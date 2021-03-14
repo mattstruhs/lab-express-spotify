@@ -35,33 +35,19 @@ app.get("/", (req, res) => {
 app.get("/artist-search", (req, res) => {
 
   spotifyApi
-  .searchArtists(req.query.artistName)
+  .searchArtists(req.query.artistName) // console.log(req.query)  // huge hurldle: when you pass data from the form it comes over as an object from req.query
   .then(data => {
+      // ----> 'HERE WHAT WE WANT TO DO AFTER RECEIVING THE DATA FROM THE API'
     console.log('The received data from the API: ', data.body);
     console.log(data.body.artists)
+    res.render("index", data.body.artists);
     
-    // ----> 'HERE WHAT WE WANT TO DO AFTER RECEIVING THE DATA FROM THE API'
   })
   .catch(err => console.log('The error while searching artists occurred: ', err));
 
-  // console.log(req.query)  // huge hurldle: when you pass data from the form it comes over as an object from req.query
-  // console.log(req.query.artistName)
   
-  res.render("index");
 
 
-});
-
-
-app.get('/beers', (req, res) => {
-  // ^ the /beers here refers to the url in the browser address bar
-  punkAPI
-    .getBeers()
-    .then(beersFromApi => {
-      res.render('beers', {beerList: beersFromApi});
-      // the 'beers' ^ here refers to the name of the hbs file you wanna show when the user visits that url
-    })
-    .catch(error => console.log(error));
 });
 
 
