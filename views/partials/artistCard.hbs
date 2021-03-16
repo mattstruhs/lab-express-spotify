@@ -1,0 +1,18 @@
+<div class="col-md-4">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">
+        {{this.name}} {{this.popularity}}
+      </h5>
+      {{!-- {{#if this.images.url[1]}} --}}
+          <img src="{{this.images.[1].url}}" alt=""/>
+     {{!-- {{/if}} --}}
+
+     for(image of images){
+        if(image.height === 320){
+             <img src="{{image.url}}" alt=""/>
+        }
+     }
+    </div>
+  </div>
+</div>

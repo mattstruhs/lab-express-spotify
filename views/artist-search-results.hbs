@@ -1,4 +1,18 @@
-{{!-- name, image, and button (or link) to show the albums --}}
-<div class="artist-list">
-    {{data.body.artists}}
+<div class="col-md-4">
+    {{artist}}
+  <div class="card">
+    {{!-- <img
+      class="card-img-top"
+      src="{{this.img}}"
+      alt=""
+    /> --}}
+    <div class="card-body">
+      {{!-- <h5 class="card-title">{{this.name}}</h5> --}}
+      <h5>{{#each artist.artists.items}}
+          {{> artistCard this}}
+          {{/each}}
+      </h5>
+      <p class="card-text">CLE</p>
+    </div>
+  </div>
 </div>
